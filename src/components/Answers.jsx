@@ -6,17 +6,16 @@ export default function Answers({
   answerState,
   onSelect,
 }) {
-  const shuffeledAnswers = useRef();
+  const shuffledAnswers = useRef();
 
-  if (!shuffeledAnswers.current) {
-    //only shuffle the answers if undefined
-    shuffeledAnswers.current = [...answers];
-    shuffeledAnswers.current.sort(() => Math.random() - 0.5);
+  if (!shuffledAnswers.current) {
+    shuffledAnswers.current = [...answers];
+    shuffledAnswers.current.sort(() => Math.random() - 0.5);
   }
 
   return (
     <ul id="answers">
-      {shuffeledAnswers.current.map((answer) => {
+      {shuffledAnswers.current.map((answer) => {
         const isSelected = selectedAnswer === answer;
         let cssClass = "";
 
